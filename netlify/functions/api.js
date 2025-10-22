@@ -1,6 +1,5 @@
 import serverless from 'serverless-http';
 import app from '../../server/src/app'; // path to your app.js
-require('dotenv').config();
 
 import { mongoConnect } from '../../server/src/service/mongo';
 import { loadPlanetsData } from '../../server/src/models/planets.model';
