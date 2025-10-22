@@ -4,7 +4,7 @@ require('dotenv').config();
 
 import { mongoConnect } from '../../server/src/service/mongo';
 import { loadPlanetsData } from '../../server/src/models/planets.model';
-import { loadLaunchesData } from '../../backend/models/launches.model';
+import { loadLaunchesData } from '../../server/src/models/launches.model';
 
 // Initialize DB before first function call
 let isDbConnected = false;
