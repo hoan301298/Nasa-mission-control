@@ -1,0 +1,10 @@
+[build]
+  command = "npm run build"
+  publish = "client/build"
+  functions = "netlify/functions"
+
+# Redirect all API calls to the Netlify function
+[[redirects]]
+  from = "/v1/*"
+  to = "/.netlify/functions/api/v1/:splat"
+  status = 200

@@ -1,12 +1,10 @@
-const SERVER_URL = process.env.REACT_APP_SERVER_URL;
-
 async function httpGetPlanets() {
-  const response = await fetch(`${SERVER_URL}/planets`);
+  const response = await fetch('/v1/planets');
   return response.json();
 }
 
 async function httpGetLaunches() {
-  const response = await fetch(`${SERVER_URL}/launches`);
+  const response = await fetch("/v1/launches");
   const fetchedLaunches = await response.json();
   return fetchedLaunches.sort((a, b) => {
     return a.flightNumber - b.flightNumber;
@@ -15,7 +13,7 @@ async function httpGetLaunches() {
 
 async function httpSubmitLaunch(launch) {
   try {
-    return await fetch(`${SERVER_URL}/launches`, {
+    return await fetch("/v1/launches", {
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -31,7 +29,7 @@ async function httpSubmitLaunch(launch) {
 
 async function httpAbortLaunch(id) {
   try{
-    return await fetch(`${SERVER_URL}/launches/${id}`, {
+    return await fetch(`/v1/launches/${id}`, {
       method: "delete",
     });
   } catch(err) {

@@ -16,5 +16,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0",
+    "serverless-http": "^4.0.0"
+  }
 }
