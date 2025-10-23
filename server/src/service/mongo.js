@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
-require('dotenv').config();
 const Mongo_URL = process.env.MONGO_URL;
+
+if (!Mongo_URL) {
+    throw new Error("MONGO_URL environment variable is not defined");
+}
 
 mongoose.connection.once('open', () => {
     console.log('MongoDB connection ready!');
