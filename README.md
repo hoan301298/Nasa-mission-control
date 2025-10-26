@@ -1,7 +1,7 @@
 # NASA Mission Control Project
 
 ## Public Website
-[Link](https://nasa-api-frontend-d41r.onrender.com/)
+[Link](https://nasa-mission-control-fi.netlify.app/)
 
 ## Overview
 This is a **NASA Mission Control** project built with a **React.js frontend** and a **Node.js backend**. The project simulates a space mission control system where users can schedule and manage space launches.
@@ -10,7 +10,7 @@ This is a **NASA Mission Control** project built with a **React.js frontend** an
 - **Frontend:** React.js
 - **Backend:** Node.js, Express.js
 - **Database:** MongoDB
-- **Deployment:** Render.com, Docker
+- **Deployment:** Netlify, Docker
 
 ## API Endpoints
 ### Launches
