@@ -1,7 +1,7 @@
-const request = require('supertest');
-const app = require('../../app');
-const { mongoConnect, mongoDisconnect } = require('../../service/mongo');
-const { loadPlanetsData } = require('../../models/planets.model');
+import request from 'supertest';
+import app from '../../app.js';
+import { mongoConnect, mongoDisconnect } from '../../service/mongo.js';
+import { loadPlanetsData } from '../../models/planets.model.js';
 
 const completeLaunchData = {
     mission: 'USS Enterprise',

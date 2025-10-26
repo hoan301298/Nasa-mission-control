@@ -1,9 +1,11 @@
-const { parse } = require('csv-parse');
-const fs = require('fs');
-const path = require('path');
-const planets = require('./planet.mongo');
+import { parse } from 'csv-parse';
+import { createReadStream } from 'fs';
+import { fileURLToPath } from 'url';
+import path from 'path';
+import planets from './planet.mongo.js';
 
-const habitablePlanets = [];
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 function isHabitablePlanet(planet) {
   return planet['koi_disposition'] === 'CONFIRMED'
@@ -13,7 +15,7 @@ function isHabitablePlanet(planet) {
 
 function loadPlanetsData () {
     return new Promise((resolve, reject) => {
-        fs.createReadStream(path.join(__dirname, '..', '..', 'data', 'kepler_data.csv'))
+        createReadStream(path.join(__dirname, '..', '..', 'data', 'kepler_data.csv'))
             .pipe(parse({
                 comment: '#',
                 columns: true,
@@ -55,7 +57,7 @@ async function savePlanet(planet) {
     }
 };
 
-module.exports = {
+export {
     loadPlanetsData,
     getAllPlanets,
 };

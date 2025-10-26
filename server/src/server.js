@@ -1,13 +1,12 @@
-const http = require('http');
-const app = require('./app');
-require('dotenv').config();
+import { createServer } from 'http';
+import app from './app.js';
 
-const { mongoConnect } = require('../src/service/mongo');
-const { loadPlanetsData } = require('./models/planets.model');
-const { loadLaunchesData } = require('./models/launches.model');
+import { mongoConnect } from '../src/service/mongo.js';
+import { loadPlanetsData } from './models/planets.model.js';
+import { loadLaunchesData } from './models/launches.model.js';
 
-const server = http.createServer(app);
-const PORT = process.env.PORT || 8000;
+const server = createServer(app);
+const PORT = 8000;
 
 async function startServer(){
     await mongoConnect();

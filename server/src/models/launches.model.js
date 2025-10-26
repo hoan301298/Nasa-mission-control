@@ -1,6 +1,6 @@
-const launchesDatabase = require('./launches.mongo');
-const planets = require('./planet.mongo');
-const axios = require('axios');
+import launchesDatabase from './launches.mongo.js';
+import planets from './planet.mongo.js';
+import axios from 'axios';
 
 const SPACEX_API_URL = 'https://api.spacexdata.com/v4/launches/query';
 
@@ -137,7 +137,7 @@ async function abortLaunchFlightNumber (launchFlightNumber) {
     return aborted.modifiedCount === 1;
 }
 
-module.exports = {
+export {
     loadLaunchesData,
     getAllLaunches,
     scheduleNewLaunch,

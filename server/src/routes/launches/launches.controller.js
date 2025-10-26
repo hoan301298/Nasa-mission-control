@@ -1,15 +1,12 @@
-const { query } = require('express');
-const { 
+import { 
     getAllLaunches, 
     scheduleNewLaunch, 
     existingLaunchWithFlightNumber, 
     abortLaunchFlightNumber 
-} = require('../../models/launches.model');
-
-const { getPagination } = require ('../../service/query');
+} from '../../models/launches.model.js';
+import { getPagination } from '../../service/query.js';
 
 async function httpGetAllLaunches (req, res) {
-    console.log(req.query);
     const { skip, limit } = getPagination(req.query);
     const launches = await getAllLaunches(skip, limit);
     return res.status(200).json(launches);
@@ -17,7 +14,6 @@ async function httpGetAllLaunches (req, res) {
 
 async function httpAddNewLaunch(req, res) {
     const launch = req.body;
-    console.log(launch);
     if  (!launch.mission || !launch.rocket || !launch.launchDate
         || !launch.target
     ) {
@@ -66,7 +62,7 @@ async function httpAbortLaunch (req, res) {
     })
 }
 
-module.exports = {
+export {
     httpGetAllLaunches,
     httpAddNewLaunch,
     httpAbortLaunch

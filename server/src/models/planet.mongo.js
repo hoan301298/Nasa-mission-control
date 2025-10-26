@@ -1,10 +1,10 @@
-const mongoose = require('mongoose');
+import { Schema, model } from 'mongoose';
 
-const planetSchema = new mongoose.Schema({
+const planetSchema = new Schema({
     keplerName: {
         type: String,
         required: true,
     }
 });
 
-module.exports = mongoose.model('planets', planetSchema);
+export default model('planets', planetSchema);
