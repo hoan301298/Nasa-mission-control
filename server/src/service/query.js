@@ -13,6 +13,6 @@ function getPagination(query) {
     };
 };
 
-module.exports = {
+export {
     getPagination
 };
